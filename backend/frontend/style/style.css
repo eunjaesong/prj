@@ -71,7 +71,7 @@ body > .site-body {
 }
 
 .site-header .logo {
-  width: 110px;
+  width: 150px;
 }
 
 ul.navbar {
@@ -964,7 +964,7 @@ a.like-button:hover {
 
 .profile-form .logo {
   margin: auto;
-  width: 110px;
+  width: 150px;
 }
 
 .profile-form .welcome-message {
