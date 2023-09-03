@@ -48,8 +48,9 @@ body > .site-body {
 }
 
 .site-header.navbar {
-  background-color: var(--site-header-background);
-  border-bottom: solid 1px var(--border);
+  /* background-color: var(--site-header-background);
+  border-bottom: solid 1px var(--border); */
+
   position: sticky;
   top: 0;
   left: 0;
@@ -83,12 +84,15 @@ ul.navbar {
 
 ul.navbar li ~ li {
   margin-left: 65px;
+
+
 }
 
 ul.navbar li {
   font-size: 17px;
   letter-spacing: -0.26px;
-  color: var(--navbar);
+
+
 }
 
 .site-body {
