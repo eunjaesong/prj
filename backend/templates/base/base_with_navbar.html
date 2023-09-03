@@ -11,8 +11,12 @@
     <nav>
       <ul class="navbar">
 
-        <li>맛집검색</li>
-        <li>리뷰보기</li>
+        <li>
+          <a href="#" > 맛집검색</a>
+        </li>
+        <li>
+          <a href="#"> 리뷰보기</a>
+        </li>
         {% if user.is_authenticated %}
           {% if user.is_staff %}
             <li><a href="{% url 'admin:index' %}">관리자</a></li>
