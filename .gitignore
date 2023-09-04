@@ -140,7 +140,6 @@ ENV/
 env.bak/
 venv.bak/
 venv.bat/
-backend/backend/settings.py
 
 # Spyder project settings
 .spyderproject
