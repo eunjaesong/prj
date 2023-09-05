@@ -21,7 +21,6 @@ class User(AbstractUser): # AbstractUser 모델 상속
 
 class Restaurant(models.Model):
     restaurant_name = models.CharField(max_length=30)
-    restaurant_link = models.URLField(validators=[validate_restaurant_list])
     address = models.CharField(max_length=255)
     number = models.CharField(max_length=20)
     price_range = models.CharField(max_length=20)
@@ -31,3 +30,29 @@ class Restaurant(models.Model):
     
     def __str__(self):
         return self.restaurant_name
+
+class Review(models.Model):
+    title = models.CharField(max_length=30)
+    restaurant_link = models.URLField(validators=[validate_restaurant_list])
+    restaurant_info = models.ForeignKey(Restaurant,on_delete=models.CASCADE)
+    RATING_CHOICE = [
+        (1,"★"),
+        (2,"★★"),
+        (3,"★★★"),
+        (4,"★★★★"),
+        (5,"★★★★★"),
+    ] # 평점 점수 5점까지
+    content = models.TextField() # 리뷰 내용 
+    dt_created = models.DateField(auto_now_add=True) # 리뷰 생성날짜 
+    dt_updated = models.DateField(auto_now=True) #리뷰 수정 날짜
+    
+    rating = models.IntegerField(choices=RATING_CHOICE,default=None)
+    #초기 평점 0점 특수문자 별로 표현한다 
+    author = models.ForeignKey(User,on_delete=models.CASCADE,related_name='reviews')
+    
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        ordering = ['-dt_created'] # 리뷰 생성 내림차순
+    

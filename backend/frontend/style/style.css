@@ -37,6 +37,7 @@ body {
   margin: 0;
   background-color: var(--body-background);
   word-break: keep-all;
+
 }
 
 body > .site-body {
@@ -314,7 +315,7 @@ ul.navbar li {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: top;
-  background-image: url("../assets/header-img.png");
+  background-image: url("../assets/main.png");
 }
 
 .main-header .fg {
@@ -337,7 +338,7 @@ ul.navbar li {
 .main-header .content > h1 {
   text-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
   font-size: 40px;
-  letter-spacing: 15.4px;
+  letter-spacing: 8.4px;
   text-align: center;
   word-break: keep-all;
   color: var(--main-header);
