@@ -33,7 +33,7 @@ class Restaurant(models.Model):
 
 class Review(models.Model):
     title = models.CharField(max_length=30)
-    restaurant_link = models.URLField(validators=[validate_restaurant_list])
+    restaurant_link = models.URLField(validators=[validate_restaurant_list],null=True)
     restaurant_info = models.ForeignKey(Restaurant,on_delete=models.CASCADE)
     RATING_CHOICE = [
         (1,"★"),
