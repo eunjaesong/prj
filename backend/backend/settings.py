@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     # allauth 회원가입 가능 
     'allauth',
     'allauth.account',
-    'allauth.socialaccount',
+    # 'allauth.socialaccount',
     'django.contrib.sites', #all-auth를 사용할 때 필수로 있어야함
     'widget_tweaks', # 회원가입,로그인 input을 수정시켜주기 위한 설정 
 ]

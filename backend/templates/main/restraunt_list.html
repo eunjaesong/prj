@@ -1,0 +1,62 @@
+{% extends "base/base_with_navbar.html" %}
+
+
+{% load static %}
+
+{% block content %}
+<main class="site-body">
+    <div class="main-header">
+        <div class="fg"></div>
+        <div class="content">
+
+            <h1>오늘은 어디서 먹을까?</h1>
+
+            <div class="header-search">
+                <form class="search-form" action="#" method="get">
+                    <input class="search-input" name="query" type="text" placeholder="식당, 음식 등을 검색해보세요" required>
+                    <button class="cp-button search-button" type="submit">검색</button>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="content-wrap">
+        <div class="content-list max-content-width" >
+          <div class="header">
+            <h2>식당 목록</h2>
+
+          </div>
+                <div class="contents">
+                    {% for restaurant in restraunt_list %}
+                    <a href="#">
+                        <section class="cp-card content">
+                            <div class="thumb" style="background-image: url('{{ restaurant.restaurant_image1.url }}');"></div>
+                            <div class="body">
+                                <span class="cp-chip green">{{ restaurant.restaurant_name }}</span>
+                                <h2 class="title">타이틀</h2>
+                                <date class="date">#</date>
+                                <div class="metadata">
+                                    <div class="review-rating">
+
+                                    </div>
+                                    <div class="review-author">
+                                        <!-- <div class="cp-avatar" style="#">
+                                        </div> -->
+                                        <!-- <span>{{ review.author.nickname}}</span> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </a>
+                    {% empty %}
+                    <p class="empty">아직 리뷰가 없어요</p>
+                    {% endfor %}
+                
+                </div>
+    </main>
+
+
+
+    {% endblock %}

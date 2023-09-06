@@ -202,7 +202,8 @@ ul.navbar li {
 
 .content-list .content .thumb {
   display: block;
-  height: 167px;
+  /* height: 167px; */
+  height: 300px;
   border-radius: 18px;
   background-position: center;
   background-size: cover;
@@ -350,6 +351,8 @@ ul.navbar li {
   border-radius: 8px;
   background-color: #fff;
   box-shadow: 0 3px 16px 0 #46433d;
+  position: absolute;
+  bottom: 250px
 }
 
 /* search-form */
