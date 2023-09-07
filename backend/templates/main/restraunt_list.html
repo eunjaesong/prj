@@ -17,46 +17,58 @@
                     <button class="cp-button search-button" type="submit">검색</button>
                 </form>
             </div>
-
-
         </div>
     </div>
 
     <div class="content-wrap">
-        <div class="content-list max-content-width" >
-          <div class="header">
-            <h2>식당 목록</h2>
+        <div class="content-list max-content-width">
+            <div class="header">
+                <h2>식당 목록</h2>
 
-          </div>
-                <div class="contents">
-                    {% for restaurant in restraunt_list %}
-                    <a href="#">
-                        <section class="cp-card content">
-                            <div class="thumb" style="background-image: url('{{ restaurant.restaurant_image1.url }}');"></div>
-                            <div class="body">
-                                <span class="cp-chip green"></span>
-                                <h2 class="title">{{ restaurant.restaurant_name }}</h2>
-                                <date class="date">#</date>
-                                <div class="metadata">
-                                    <div class="review-rating">
+            </div>
+            <div class="contents">
+                {% for restaurant in restraunt_list %}
+                <a href="#">
+                    <section class="cp-card content">
+                        <div class="thumb" style="background-image: url('{{ restaurant.restaurant_image1.url }}');">
+                        </div>
+                        <div class="body">
+                            <span class="cp-chip green">{{ restaurant.si_gu_address }}</span> <!-- ~~시 ~~구 or 동 -->
+                            <h2 class="title">{{ restaurant.restaurant_name }}</h2>
+                            <h3 class="title">{{ restaurant.address }}</h3> <!-- 상세주소 -->
+                            <date class="date">#</date>
+                            <div><p>태그</p></div>
+                            <div class="metadata">
 
-                                    </div>
-                                    <div class="review-author">
-                                        <!-- <div class="cp-avatar" style="#">
+                                <div class="review-rating">
+
+                                </div>
+                                <div class="review-author">
+                                    <!-- <div class="cp-avatar" style="#">
                                         </div> -->
-                                        <!-- <span>{{ review.author.nickname}}</span> -->
-                                    </div>
+                                    <!-- <span>{{ review.author.nickname}}</span> -->
                                 </div>
                             </div>
-                        </section>
-                    </a>
-                    {% empty %}
-                    <p class="empty">아직 식당 정보가 없어요</p>
-                    {% endfor %}
-                
-                </div>
+                        </div>
+                    </section>
+                </a>
+                {% empty %}
+                <p class="empty">아직 식당 정보가 없어요</p>
+                {% endfor %}
+
+            </div>
+        </div>
+        
     </main>
-
-
-
+    
     {% endblock %}
+
+    <!-- {% if p.tags.exists %}
+    <i class="fa-solid fa-hashtag"></i>
+    {% for tag in p.tags.iterator %}
+    <a href="{{ tag.get_absolute_url }}"><span class="badge badge-pill badge-light">{{ tag }}</span></a>
+    {% endfor %}
+    <br />
+    <br />
+{% endif %} -->
+    

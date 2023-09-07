@@ -19,14 +19,25 @@ class User(AbstractUser): # AbstractUser 모델 상속
 
 # 식당정보 모델 
 
+class Tag(models.Model):
+    name=models.CharField(max_length=50)
+    slug=models.SlugField(max_length=200, unique=True, allow_unicode=True)
+
+    def __str__(self):
+        return self.name
+    def get_absolute_url(self):
+        return f'/hirestaurant/tag/{self.slug}/'
+    
 class Restaurant(models.Model):
     restaurant_name = models.CharField(max_length=30)
-    address = models.CharField(max_length=255)
+    si_gu_address= models.CharField(max_length=255)
+    address=models.CharField(max_length=255)
     number = models.CharField(max_length=20)
     price_range = models.CharField(max_length=20)
     restaurant_image1 = models.ImageField(upload_to='restaurant_pics')
     restaurant_image2 = models.ImageField(upload_to='restaurant_pics',blank=True)
     restaurant_image3 = models.ImageField(upload_to='restaurant_pics',blank=True)
+    tags= models.ManyToManyField(Tag, blank=True)
     
     def __str__(self):
         return self.restaurant_name
@@ -55,4 +66,3 @@ class Review(models.Model):
     
     class Meta:
         ordering = ['-dt_created'] # 리뷰 생성 내림차순
-    
